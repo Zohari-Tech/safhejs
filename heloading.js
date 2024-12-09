@@ -1,4 +1,4 @@
-export async function checkStatus(msisdn, url, error_link, offercode) {
+async function checkStatus(msisdn, url, error_link, offercode) {
   const link = `${url}/public/v2/subscriber/exists?msisdn=${msisdn}&services=${offercode}`;
 
   const requestOptions = {
@@ -15,7 +15,7 @@ export async function checkStatus(msisdn, url, error_link, offercode) {
     window.location.href = error_link;
   }
 }
-export async function fetchData(
+async function fetchData(
   channel,
   offercode,
   errorLink,
@@ -38,7 +38,7 @@ export async function fetchData(
   }
 }
 
-export async function SubscribeCustomer(link, errorLink) {
+async function SubscribeCustomer(link, errorLink) {
   const requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -64,7 +64,7 @@ export async function SubscribeCustomer(link, errorLink) {
 }
 
 // Function to fetch the token
-export async function getHeToken(main_url) {
+async function getHeToken(main_url) {
   const requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -87,7 +87,7 @@ export async function getHeToken(main_url) {
 }
 
 // Function to fetch the masked MSISDN using the token
-export async function getMaskedMsisdn(main_url) {
+async function getMaskedMsisdn(main_url) {
   let token = await getHeToken(main_url);
   console.log("token", token);
   const headers = {
